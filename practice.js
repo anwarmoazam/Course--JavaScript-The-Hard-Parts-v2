@@ -109,3 +109,47 @@ result2 = copyArrayAndManipulate([10,20,30],input => input/2);
 console.log(result2);
 result3 = copyArrayAndManipulate([10,20,30],input => input+2);
 console.log(result3);
+
+
+// Closure
+
+// Functions get a new memory every run/invocation
+function multiplyBy2(inputNumber){
+    const result = inputNumber*2;
+    return result;
+}
+
+let result4 = multiplyBy2(7);
+console.log(result4);
+
+let result5 = multiplyBy2(10);
+console.log(result5);
+
+// Function can be returned from other functions in JavaScript
+function createFunction(){
+    function multiplyBy2(num){
+        return num*2;
+    }
+    return multiplyBy2;
+}
+
+const generatedFunc = createFunction();
+const result6 = generatedFunc(3);
+
+console.log(result6);
+
+// Calling a function in the same function call as it was defined
+function outer(){
+    let counter = 0;
+    function increamentCounter(){ counter++; }
+    return increamentCounter;
+}
+
+const myNewFunction = outer();
+myNewFunction();
+myNewFunction();
+
+// Run outer again
+const anotherFunction = outer();
+anotherFunction();
+anotherFunction();
