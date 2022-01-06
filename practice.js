@@ -153,3 +153,32 @@ myNewFunction();
 const anotherFunction = outer();
 anotherFunction();
 anotherFunction();
+
+// Asynchronous JavaScript
+// Promises, Async & the Event loop
+
+// What if we try to delay a function directly using setTimeout?
+// setTimeout is a build in function - its first argument is the function to delay followed by millisecond to delay by
+
+function printHello(){
+    console.log("Hello");
+}
+
+setTimeout(printHello,1000);
+console.log("Me first!");
+
+// We're interacting with a world outside of JavaScript now - so we need rules
+
+// function printHello(){
+//     console.log("Hello");
+// }
+
+// function blockFor1Sec(){
+//     for(let i=0; i<10000; i++){
+//         console.log('I is : ',i+1);
+//     }
+// }
+
+// setTimeout(printHello,0);
+// blockFor1Sec();
+// console.log("Me first!");
