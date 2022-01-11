@@ -182,3 +182,64 @@ console.log("Me first!");
 // setTimeout(printHello,0);
 // blockFor1Sec();
 // console.log("Me first!");
+
+/*
+function printThis(){
+    let a = 10;
+    function increament(){
+        return a++;
+    }
+    return increament
+}
+
+const output = printThis();
+let result = output();
+result = output();
+result = output();
+const result1 = output();
+const result2 = output();
+
+
+log(1)
+
+function x (){
+    log(2);
+}
+
+log(3)
+
+(function y (){
+    log(4);
+})()
+
+setTimeout(log(5), 100)
+setTimeout(log(5.8), 0)
+
+log(6)
+
+ajax(log(7), 0)
+
+log(8)
+
+promise(log(9), 0)
+
+log(10)
+
+// 1
+// 3
+// 4
+// 6
+// 8
+// 10
+// 9
+// 5.8
+// 7
+// 5
+
+// Callback Queue --> 5.8/7/5
+// MicroTask Queue --> 9 
+
+// Promise State - Pending/Fullfilled/Rejected
+
+*/
+
