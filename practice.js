@@ -243,3 +243,12 @@ log(10)
 
 */
 
+function display(data){
+    console.log(data);
+}
+
+const url = 'www.google.com';
+const futureData = fetch(url);
+futureData.then(display);
+
+console.log("Me first!!!");
