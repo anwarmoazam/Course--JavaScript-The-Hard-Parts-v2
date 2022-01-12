@@ -160,12 +160,12 @@ anotherFunction();
 // What if we try to delay a function directly using setTimeout?
 // setTimeout is a build in function - its first argument is the function to delay followed by millisecond to delay by
 
-function printHello(){
-    console.log("Hello");
-}
+// function printHello(){
+//     console.log("Hello");
+// }
 
-setTimeout(printHello,1000);
-console.log("Me first!");
+// setTimeout(printHello,1000);
+// console.log("Me first!");
 
 // We're interacting with a world outside of JavaScript now - so we need rules
 
@@ -243,12 +243,47 @@ log(10)
 
 */
 
-function display(data){
-    console.log(data);
+// function display(data){
+//     console.log(data);
+// }
+
+// const url = 'www.google.com';
+// const futureData = fetch(url);
+// futureData.then(display);
+
+// console.log("Me first!!!");
+
+// Classes & Prototypes
+// Objects - store functions with their associated data!
+const user1 = {
+    name: 'Anwar',
+    score: 3,
+    increament: function(){ user1.score++;}
+};
+
+user1.increament();
+console.log(user1.score);
+
+const user2 = {};
+user2.name = 'ABC';
+console.log(user2);
+
+const user3 = Object.create(null);
+
+user3.name = 'Hafiz';
+
+console.log(user3);
+
+// Generate objects using a function
+function userCreater(name, score){
+    const newUser = {};
+    newUser.name = name;
+    newUser.score = score;
+    newUser.increament = function() {
+        newUser.score++;
+    };
+    return newUser;
 }
 
-const url = 'www.google.com';
-const futureData = fetch(url);
-futureData.then(display);
-
-console.log("Me first!!!");
+const user4 = userCreater('Will',5);
+console.log(user4);
