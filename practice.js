@@ -275,6 +275,8 @@ user3.name = 'Hafiz';
 console.log(user3);
 
 // Generate objects using a function
+
+/*
 function userCreater(name, score){
     const newUser = {};
     newUser.name = name;
@@ -287,3 +289,31 @@ function userCreater(name, score){
 
 const user4 = userCreater('Will',5);
 console.log(user4);
+
+user4.increament();
+console.log(user4);
+*/
+
+// Solution 2 : Using the prototype chain
+
+function userCreater(name, score){
+    const newUser = Object.create(userFunctionStore);
+    // const newUser = {};
+    newUser.name = name;
+    newUser.score = score;
+    return newUser;
+};
+
+const userFunctionStore = {
+    increament: function(){this.score++;},
+    login: function(){console.log("Logged in !");}
+};
+
+const user4 = userCreater('Anwar',3);
+const user5 = userCreater('Moazam',5);
+console.log(user4);
+user4.increament();
+user4.login();
+console.log(user4);
+console.log(user5);
+console.log(user4.hasOwnProperty('score'));
