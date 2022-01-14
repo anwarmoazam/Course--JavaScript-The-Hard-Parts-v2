@@ -317,3 +317,46 @@ user4.login();
 console.log(user4);
 console.log(user5);
 console.log(user4.hasOwnProperty('score'));
+
+// The new keyword automates a lot of our manual work
+
+function userCreator1(name,score){
+    this.name = name;
+    this.score = score;
+}
+
+userCreator1.prototype.increament = function(){
+    this.score++
+};
+
+const user6 = new userCreator1("Sikandar",10);
+console.log(user6);
+user6.increament();
+console.log(user6);
+
+// Interlude - functions are both objects and functions
+function multiplyBy2(number){
+    return number*2;
+}
+
+multiplyBy2.stored = 5;
+
+console.log(multiplyBy2(multiplyBy2.stored));
+
+// Solution 4 : The class 'syntactic sugar'
+class UserCreator {
+    constructor(name,score){
+        this.name = name;
+        this.score = score;
+    }
+    increament(){ this.score++; }
+    login(){ console.log("Logged In!!!"); }
+}
+
+const user7 = new UserCreator('Aaliya',13);
+console.log(user7);
+user7.increament();
+console.log(user7);
+user7.name = "Uzair";
+console.log(user7);
+user7.login();
