@@ -360,3 +360,16 @@ console.log(user7);
 user7.name = "Uzair";
 console.log(user7);
 user7.login();
+
+function display(data){
+    console.log(data);
+}
+
+let myData = fetch('https://ghibliapi.herokuapp.com/people');
+
+console.log(myData);
+
+myData.then(display);
+myData.catch((error)=>{
+    console.log('Some error occured');
+})
