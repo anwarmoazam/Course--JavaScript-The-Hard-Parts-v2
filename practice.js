@@ -362,14 +362,14 @@ console.log(user7);
 user7.login();
 
 function display(data){
-    console.log(data);
+    return data.json;
 }
 
 let myData = fetch('https://ghibliapi.herokuapp.com/people');
 
 console.log(myData);
 
-myData.then(display);
+myData.then(display).then(d=>console.log(d));
 myData.catch((error)=>{
     console.log('Some error occured');
 })
