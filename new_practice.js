@@ -74,3 +74,12 @@ console.log(myNewFunc);
 myNewFunc();
 
 console.log(myNewFunc);
+
+function display(data){
+    console.log(data.json());
+    // return data.json();
+}
+
+const futureData = fetch('https://jsonplaceholder.typicode.com/posts');
+futureData.then(display)
+// .then((data)=>console.log(data));
