@@ -79,3 +79,49 @@ user6.increment();
 console.log('User 6 Score : ',user6.score);
 console.log(user6.login());
 console.log(user6.hasOwnProperty('score'));
+
+// Arrow functions override the normal this rules?
+
+// Interlude - functions are both objects and functions
+function multiplyBy2(num){
+    return num*2;
+}
+
+multiplyBy2.stored = 5;
+console.log(multiplyBy2(3));
+console.log(multiplyBy2.prototype);
+
+// Solution 3
+// The new keyword automates a lot of out manual work
+function userCreatorWithNew(name,score){
+    this.name = name;
+    this.score = score;
+}
+
+userCreatorWithNew.prototype.increment = function(){ this.score++; };
+userCreatorWithNew.prototype.login = function(){ `Welcome ${this.name}`};
+
+const user7 = new userCreatorWithNew('Eva',9);
+console.log(user7);
+console.log(user7.score);
+user7.increment();
+console.log(user7.score);
+
+// Solution 4
+// The class
+class UserCreator{
+    constructor(name,score){
+        this.name = name;
+        this.score = score;
+    }
+    increment() {this.score++};
+    login() { return `Welcome ${this.name}`};
+}
+
+const user8 = new UserCreator('Anwar',3);
+console.log(user8)
+console.log(user8.score);
+user8.increment();
+console.log(user8.score);
+console.log(user8.login());
+
